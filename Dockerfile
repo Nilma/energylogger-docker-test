@@ -1,5 +1,6 @@
-FROM --platform=$TARGETPLATFORM debian:bookworm-slim
+FROM debian:bookworm-slim@sha256:<digest>
 RUN apt-get update \
+ && apt-get upgrade -y \
  && apt-get install -y --no-install-recommends build-essential stress-ng netcat-openbsd ca-certificates \
  && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
